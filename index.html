@@ -1,62 +1,52 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8" />
-  <title>LGY 的仓库</title>
-  <link rel="stylesheet" href="styles.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LGY · 个人名片</title>
+
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header class="site-header">
+
     <div class="container">
-      <h1 class="site-title">LGY的仓库（软件下载 个人博客）</h1>
-      <p class="site-subtitle">分享链接均为飞牛</p>
-      <nav class="site-nav">
-        <a href="index.html">bilibili：LGY923</a>
-        <a href="#about">一键三连</a>
-      </nav>
+
+        <nav>
+            <a href="#home">首页</a>
+            <a href="#contact">联系我</a>
+        </nav>
+
+        <section id="home" class="avatar-section">
+            <!-- 头像已移除 -->
+            <div class="name">LGY</div>
+            <div class="tagline">
+                <i class="fas fa-hand-peace" style="color:#5B8DEF; margin-right:6px;"></i>
+                <!-- 此处已将 XBAOS 改为 LGY923 -->
+                嗨嗨，这里是有趣的 LGY923 频道！一起玩耍吧~
+            </div>
+        </section>
+
+        <!-- 分隔装饰已移除 -->
+
+        <section id="contact">
+            <div class="social">
+                <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="#" aria-label="微博"><i class="fab fa-weibo"></i></a>
+                <a href="https://space.bilibili.com/318969844?spm_id_from=333.1007.0.0" target="_blank" aria-label="哔哩哔哩"><i class="fab fa-bilibili"></i></a>
+                <a href="#" aria-label="微信"><i class="fab fa-weixin"></i></a>
+                <a href="#" aria-label="邮箱"><i class="fas fa-envelope"></i></a>
+            </div>
+        </section>
+
+        <footer>
+            &copy; 2026 <span>LGY923</span> · 用 <i class="fas fa-heart" style="color:#ef6b7a; font-size:0.8rem;"></i> 制作
+        </footer>
+
     </div>
-  </header>
 
-  <main class="container">
-    <section id="posts">
-      <h2>文章</h2>
-      <div id="post-list" class="post-list"></div>
-    </section>
-
-    <section id="about" class="about">
-      <h2>一些工具</h2>
-      <h2>ADB驱动：https://share.fnnas.net/s/0171493ba80f43cd82<h2/> 
-      <h2>模块：https://share.fnnas.net/s/6336fc21c7664560a9 <h2/>
-      <h2>必备工具：https://share.fnnas.net/s/b9dc4b1285cb4592be<h2/>
-      <h2>三星S8港行固件包：https://share.fnnas.net/s/3a7890a6f88240d38f<h2/>
-    
-       <div id="post-list" class="post-list"></div>
-    </section>
-        
-     <section id="about" class="about">
-
-      <h2>对OEC那期评测视频的补充<h2/>
-      <p>这个盒子是我在海鲜市场100买的 刷过飞牛 由于只有2GB的运存 所以在跑一堆docker时会卡</p>
-      <P>而且最离谱的是 刚到手时无法把我的硬盘创建分区（只能用zfs内存占用还高 后续ota后就没事了）<p/>
-            
-     <div id="post-list" class="post-list"></div>
-    </section>
-        
-     <section id="about" class="about">
-       
-   <h2>root卡刷包apk下载<h2/> 
-     <p>root包：alpha面具卡刷包（重命名后缀为apk就是安装包）下载链接：https://share.fnnas.net/s/f140fa2977e1476d93<p/>
-    <P> magisk 卡刷包 （重命名后缀为apk就是安装包） 下载链接https://share.fnnas.net/s/54953ff318c942288d<p/>  
-       
-       </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container">
-      <p>© 2026 LGY923 ·软件下载 个人博客 </p>
-    </div>
-  </footer>
-
-  <script src="main.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
