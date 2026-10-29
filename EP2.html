@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LGY923 · EP2</title>
+  <style>
+    :root {
+      --header-h: 64px;
+      --paper: #faf8f3;
+      --ink: #1c1f1a;
+      --muted: #6b6f66;
+      --line: #e4e0d6;
+      --serif: "Iowan Old Style", "Palatino Linotype", "Songti SC", "Noto Serif SC", "Source Han Serif SC", STSong, SimSun, Georgia, serif;
+      --sans: "Avenir Next", "Segoe UI", "Noto Sans SC", "Source Han Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--sans);
+      font-size: 16px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; cursor: pointer; background: none; border: none; }
+
+    :focus-visible {
+      outline: 2px solid var(--ink);
+      outline-offset: 3px;
+      border-radius: 2px;
+    }
+
+    /* 头部栏 */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: var(--paper);
+      border-bottom: 1px solid var(--line);
+    }
+    .header-inner {
+      height: var(--header-h);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 24px;
+    }
+    .brand {
+      font-family: var(--serif);
+      font-size: 20px;
+      font-weight: 600;
+    }
+    .site-nav { display: flex; gap: 28px; }
+    .site-nav a {
+      font-size: 14px;
+      color: var(--muted);
+      transition: color 0.2s;
+    }
+    .site-nav a:hover { color: var(--ink); }
+
+    /* 移动端菜单按钮 */
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      width: 40px;
+      height: 40px;
+      padding: 0 8px;
+    }
+    .menu-toggle span {
+      display: block;
+      height: 1.5px;
+      background: var(--ink);
+      transition: transform 0.25s;
+    }
+    .menu-toggle[aria-expanded="true"] span:first-child { transform: translateY(3.25px) rotate(45deg); }
+    .menu-toggle[aria-expanded="true"] span:last-child { transform: translateY(-3.25px) rotate(-45deg); }
+
+    /* 内容 */
+    .content {
+      padding: 96px 24px;
+      text-align: center;
+    }
+    .content-inner {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 48px 40px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: #fff;
+      font-family: var(--serif);
+      font-size: 22px;
+      line-height: 1.9;
+      color: var(--ink);
+    }
+
+    /* 移动端下拉菜单 */
+    @media (max-width: 640px) {
+      .site-nav {
+        display: none;
+        position: absolute;
+        top: var(--header-h);
+        left: 0; right: 0;
+        flex-direction: column;
+        gap: 0;
+        background: var(--paper);
+        border-bottom: 1px solid var(--line);
+        padding: 8px 24px 16px;
+      }
+      .site-nav.is-open { display: flex; }
+      .site-nav a { padding: 14px 0; font-size: 16px; }
+      .menu-toggle { display: flex; }
+      .content { padding: 64px 24px; }
+      .content-inner { font-size: 19px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="#">LGY923</a>
+
+      <nav class="site-nav" id="siteNav" aria-label="主导航">
+        <a href="#">主页</a>
+        <a href="https://space.bilibili.com/318969844?spm_id_from=333.1007.0.0" target="_blank" rel="noopener">B站主页</a>
+        <a href="caidan.MP4" target="_blank" rel="noopener">联系我</a>
+      </nav>
+
+      <button class="menu-toggle" id="menuToggle" type="button" aria-expanded="false" aria-controls="siteNav" aria-label="打开菜单">
+        <span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main class="content">
+    <div class="content-inner">
+      <p>DSH的视频已经开始制作 敬请期待</p>
+    </div>
+  </main>
+
+  <script>
+    (function () {
+      'use strict';
+      var toggle = document.getElementById('menuToggle');
+      var nav = document.getElementById('siteNav');
+
+      function closeMenu() {
+        nav.classList.remove('is-open');
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.setAttribute('aria-label', '打开菜单');
+      }
+
+      toggle.addEventListener('click', function () {
+        var open = nav.classList.toggle('is-open');
+        toggle.setAttribute('aria-expanded', String(open));
+        toggle.setAttribute('aria-label', open ? '关闭菜单' : '打开菜单');
+      });
+
+      nav.querySelectorAll('a').forEach(function (a) {
+        a.addEventListener('click', closeMenu);
+      });
+
+      window.addEventListener('resize', function () {
+        if (window.innerWidth > 640) closeMenu();
+      });
+    })();
+  </script>
+</body>
+</html>
